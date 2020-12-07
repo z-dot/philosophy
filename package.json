@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@editorjs/editorjs": "^2.19.0",
+    "@editorjs/editorjs": "^2.18.0",
     "@editorjs/header": "^2.6.1",
     "@editorjs/list": "^1.6.1",
     "@nuxt/http": "^0.6.1",

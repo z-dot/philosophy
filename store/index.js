@@ -15,10 +15,26 @@ export const state = () => ({
         },
         "raw_user_data": {}
     },
-    general_advice: ""
+    general_advice: "",
+    editor: undefined,
+    saving_interval: undefined,
+    checking_interval: undefined
 })
 
 export const mutations = {
+    set_saving_interval(state, interval) {
+        state.saving_interval = interval;
+    },
+    set_checking_interval(state, interval) {
+        state.checking_interval = interval;
+    },
+    clear_intervals(state) {
+        clearInterval(state.saving_interval);
+        clearInterval(state.checking_interval);
+    },
+    modify_editor(state, editor) {
+        state.editor = editor;
+    },
     modify_user_questions(state, uq) {
         state.user_questions = uq;
     },

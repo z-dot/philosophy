@@ -43,33 +43,29 @@ export default {
   }, */
   methods: {
     startEditor: function (data) {
-      this.destroyEditor();
-      window.editor = new EditorJS({
-        holder: "editorjs",
-        tools: {
-          list: List,
-          header: {
-            class: Header,
-            config: {
-              placeholder: "Header",
-              levels: [2, 3, 4],
-              defaultLevel: 2,
+      this.$store.commit(
+        "modify_editor",
+        new EditorJS({
+          holder: "editorjs",
+          tools: {
+            list: List,
+            header: {
+              class: Header,
+              config: {
+                placeholder: "Header",
+                levels: [2, 3, 4],
+                defaultLevel: 2,
+              },
             },
           },
-        },
-        autofocus: true,
-        placeholder: "Write here!",
-        data: data,
-      });
+          autofocus: true,
+          placeholder: "Write here!",
+          data: data,
+        })
+      );
     },
     save: function () {
       return window.editor.save();
-    },
-    destroyEditor() {
-      if (window.editor) {
-        window.editor.destroy();
-        window.editor = null;
-      }
     },
   },
 };

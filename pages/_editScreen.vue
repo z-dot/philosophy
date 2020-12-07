@@ -65,7 +65,7 @@ export default {
       this.advice = !this.advice;
     },
     saveQuestion() {
-      this.$refs.editor.save().then((data) => {
+      this.$store.state.editor.save().then((data) => {
         this.$store.commit("change_richtext_and_datetime", {
           id: this.current_question.id,
           rich_text: data.blocks,
@@ -77,7 +77,7 @@ export default {
       this.save_state = "Saved";
     },
     async is_saved(obj) {
-      let editor_blocks = await obj.$refs.editor.save();
+      let editor_blocks = await obj.$store.state.editor.save();
       if (
         JSON.stringify(
           obj.$store.state.current_question.user_data.rich_text
@@ -90,22 +90,28 @@ export default {
     },
     check_is_saved() {
       var self = this;
-      this.check_is_saved = setInterval(() => {
-        if (window.editor) {
-          self.is_saved(self);
-        }
-      }, 5000);
+      this.$store.commit(
+        "set_checking_interval",
+        setInterval(() => {
+          if (this.$store.state.editor) {
+            self.is_saved(self);
+          }
+        }, 5000)
+      );
     },
     save_periodically() {
       var self = this;
-      this.saving_interval = setInterval(() => {
-        if (window.editor) {
-          self.saveQuestion();
-        }
-      }, 30000);
+      this.$store.commit(
+        "set_saving_interval",
+        setInterval(() => {
+          if (this.$store.state.editor) {
+            self.saveQuestion();
+          }
+        }, 30000)
+      );
     },
     download_as_docx() {
-      this.$refs.editor.save().then((data) => {
+      this.$store.state.editor.save().then((data) => {
         function to_section_children(ejs_object, header) {
           var output = [];
           const numbering = new docx.Numbering({

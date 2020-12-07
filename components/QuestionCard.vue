@@ -46,6 +46,11 @@ export default {
 </script>
 
 <style scoped>
+b-card {
+  height: 12rem;
+  width: 5rem;
+}
+
 .distribute {
   height: 100%;
   width: 100%;

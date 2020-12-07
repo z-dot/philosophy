@@ -91,8 +91,8 @@ export default {
     },
   },
   created() {
-    if (window.editor) {
-      window.editor = null;
+    if (this.$store.state.editor) {
+      this.$store.commit("modify_editor", undefined);
     }
     this.$nuxt.$on("change-search", (term) => {
       this.changeSearch(term);

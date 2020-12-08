@@ -1,0 +1,30 @@
+{
+  "name": "philosophy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "dependencies": {
+    "@editorjs/editorjs": "^2.18.0",
+    "@editorjs/header": "^2.6.1",
+    "@editorjs/list": "^1.6.1",
+    "@nuxt/http": "^0.6.1",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.17.3",
+    "core-js": "^3.6.5",
+    "docx": "^5.4.1",
+    "file-saver": "^2.0.5",
+    "gh-pages": "^3.1.0",
+    "he": "^1.2.0",
+    "nuxt": "^2.14.6"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.9",
+    "push-dir": "^0.4.1"
+  }
+}

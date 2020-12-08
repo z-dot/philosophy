@@ -1,12 +1,12 @@
 <template>
   <b-container>
-    <b-card-group deck>
+    <b-row cols="4" align-content="center" align-h="center">
       <QuestionCard
         v-for="question of questions"
         :question="question"
         v-bind:key="question.id"
       />
-    </b-card-group>
+    </b-row>
   </b-container>
 </template>
 <script>

@@ -72,9 +72,10 @@ export const actions = {
         /* console.log("THIS HAS RUN"); */
         if (context.state.user_questions.length === 0) {
             let raw_questions = await this.$http.$get(
-                "https://z-dot.github.io/stable/questions%20v1.json"
+                "https://z-dot.github.io/stable/questions%20v3.json"
             );
-            context.commit("upload_general_advice", raw_questions.general_advice)
+            console.log(raw_questions.general_advice)
+            context.commit("upload_general_advice", raw_questions.general_advice);
             let output_questions = [];
             let question;
             for (question of raw_questions.questions) {
@@ -98,8 +99,8 @@ export const actions = {
                 temp_question = {};
                 temp_question.question_data = question;
                 temp_question.id = question.id;
-                if (localStorage.getItem(question.id)) {
-                    user_temp = JSON.parse(localStorage.getItem(question.id));
+                if (localStorage.getItem(question.question)) {
+                    user_temp = JSON.parse(localStorage.getItem(question.question));
                     temp_question.raw_user_data = user_temp;
                     temp_question.user_data = {
                         rich_text: user_temp.blocks,

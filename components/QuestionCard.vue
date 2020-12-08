@@ -1,9 +1,14 @@
 <template>
-  <b-card no-body>
+  <b-card no-body style="margin: 5px">
     <b-card-body>
       <div class="distribute">
         <NuxtLink :to="question.id.toString()" tag="a">
-          <b-card-text>{{ question.question_data.question }}</b-card-text>
+          <b-card-text
+            >{{ question.question_data.question }} ({{
+              question.question_data.marks
+            }}
+            marks)</b-card-text
+          >
         </NuxtLink>
       </div>
     </b-card-body>
@@ -46,11 +51,6 @@ export default {
 </script>
 
 <style scoped>
-b-card {
-  height: 12rem;
-  width: 5rem;
-}
-
 .distribute {
   height: 100%;
   width: 100%;

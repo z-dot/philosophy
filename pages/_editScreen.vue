@@ -26,7 +26,9 @@
         <b-col v-if="advice" cols="4">
           <b-card no-body>
             <b-tabs pills card>
-              <b-tab title="Question advice"></b-tab>
+              <b-tab title="Question advice">
+                {{ current_question.question_data.advice }}
+              </b-tab>
               <b-tab title="General advice"
                 ><div v-html="general_advice"></div
               ></b-tab>
@@ -72,7 +74,10 @@ export default {
           new_date: new Date(data.time).toDateString(),
           raw: data,
         });
-        localStorage.setItem(this.current_question.id, JSON.stringify(data));
+        localStorage.setItem(
+          this.$store.state.current_question.question_data.question,
+          JSON.stringify(data)
+        );
       });
       this.save_state = "Saved";
     },

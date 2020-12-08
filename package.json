@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "predeploy": "nuxt generate",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@editorjs/editorjs": "^2.18.0",

@@ -4,6 +4,7 @@ export default {
 
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
+  mode: "static",
 
   router: {
     base: "/philosophy/"
